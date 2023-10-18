@@ -20,7 +20,14 @@ public class CuantosAutobuses {
             }
             System.out.println("Apuntados. Van " + personasGrupo);
         }
-        System.out.println("Son necesarios " + personasGrupo/55 + " autobuses");
+        int autobusesNecesarios = 0;
+            if(personasGrupo % 55 == 0){
+                autobusesNecesarios = personasGrupo/55;}
+            else{
+                autobusesNecesarios = personasGrupo/55 + 1;
+            }
+    System.out.println("Son necesarios "+ autobusesNecesarios + " autobuses");
+
 
     }
 }
