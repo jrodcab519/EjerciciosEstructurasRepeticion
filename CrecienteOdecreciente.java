@@ -8,7 +8,7 @@ public class CrecienteOdecreciente {
         boolean creciente = true;
         boolean decreciente = true;
 
-        System.out.println("Introduce una secuencia de números enteros (introduce un valor negativo para finalizar):");
+        System.out.println("Introduce los números que desees (introduce un valor negativo para finalizar):");
 
         while (true) {
             int numero = scanner.nextInt();
