@@ -33,7 +33,7 @@ public class RellenandoConPuntos {
         int longitudCadena = cadena.length();
 
         if (longitudCadena >= n) {
-            return cadena;
+            return "La cadena no cabe";
         } else {
             int cantidadCaracteresFaltantes = n - longitudCadena;
             StringBuilder resultado = new StringBuilder();
