@@ -12,7 +12,7 @@ public class CrecienteOdecreciente {
         boolean decreciente = true;
 
         do {
-            System.out.print(">");
+            System.out.printf(">");
             numeroActual = s.nextInt();
             if(contador > 1 && numeroActual >= 0) {
                 if (numeroActual > numeroAnterior) {
