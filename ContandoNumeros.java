@@ -18,9 +18,9 @@ public class ContandoNumeros {
             } else if (numero < 0) {
                 numerosNegativos++;
             }
-                else {
-                    numerosCeros++;
-                }
+            else {
+                numerosCeros++;
+            }
         }
         System.out.println(numerosNegativos + " números negativos\n" + numerosPositivos +" números positivos\n" + numerosCeros + " ceros");
     }
