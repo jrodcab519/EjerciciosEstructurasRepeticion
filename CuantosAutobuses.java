@@ -6,28 +6,26 @@ public class CuantosAutobuses {
 
         Scanner s = new Scanner(System.in);
 
-        int personasGrupo =0;
+        final int personasPorAutobus = 55;
+        int total = 0;
+        int personas = 0;
 
-        while (true) {
-            int numero = s.nextInt();
-            System.out.println("Personas del grupo (0=FIN): " + numero);
-            if(numero>0){
-            personasGrupo += numero;}
-             else if (numero<0) {
-                System.out.println("No puede ser negativo");}
-             else {
-                 break;
+        do{
+            System.out.println("Personas del grupo (0=FIN): > ");
+            personas = s.nextInt();
+
+            if (personas < 0){
+                System.out.println("No puede ser negativo.");
+            } else if (personas > 0){
+                total +=personas;
+                System.out.printf("Apuntados. Van %d%n", total);
             }
-            System.out.println("Apuntados. Van " + personasGrupo);
-        }
-        int autobusesNecesarios = 0;
-            if(personasGrupo % 55 == 0){
-                autobusesNecesarios = personasGrupo/55;}
-            else{
-                autobusesNecesarios = personasGrupo/55 + 1;
-            }
-    System.out.println("Son necesarios "+ autobusesNecesarios + " autobuses");
+        }while (personas !=0);
 
+        int numeroAutobuses = total / personasPorAutobus;
 
+        if(numeroAutobuses * personasPorAutobus < total) numeroAutobuses++;
+
+        System.out.printf("Son necesarios %d autobuses", numeroAutobuses);
     }
 }
