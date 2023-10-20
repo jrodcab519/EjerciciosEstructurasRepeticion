@@ -1,56 +1,49 @@
 import java.util.Scanner;
 
 public class RellenandoConPuntos {
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Introduce una cadena (hasta 80 caracteres): ");
-        String cadena = scanner.nextLine();
+        Scanner s = new Scanner(System.in);
+        System.out.println("Introduce una cadena de caracteres >");
+        String cadena = s.nextLine();
+        System.out.println("Introduce una longitud>");
+        int longitud = s.nextInt();
+        System.out.println("Introduce una dirección Izquierda (I) ó Derecha(D)>");
+        char caracter = s.next().charAt(0);
 
-        int n;
-        do {
-            System.out.print("Introduce un entero positivo 'n': ");
-            while (!scanner.hasNextInt()) {
-                System.out.print("Por favor, introduce un entero positivo válido: ");
-                scanner.next();
+        if (cadena.length() > longitud) {
+            System.out.print("La cadena no cabe");
+        } else {
+
+            switch (caracter){
+                case 'D':
+                    completarDerecha(cadena, longitud);
+                    break;
+                case 'I':
+                    completarIzquierda(cadena, longitud);
+                    break;
+                default:
+                    System.out.print("La dirección debe ser I o D");
             }
-            n = scanner.nextInt();
-        } while (n <= 0);
+        }
 
-        char caracter;
-        do {
-            System.out.print("Introduce 'I' para rellenar a la izquierda o 'D' para rellenar a la derecha: ");
-            caracter = scanner.next().charAt(0);
-        } while (caracter != 'I' && caracter != 'D');
 
-        String resultado = rellenarCadena(cadena, n, caracter);
-        System.out.println("Resultado: " + resultado);
 
-        scanner.close();
     }
 
-    public static String rellenarCadena(String cadena, int n, char caracter) {
-        int longitudCadena = cadena.length();
+    public static void completarDerecha(String cadena, int longitud ) {
 
-        if (longitudCadena >= n) {
-            return "La cadena no cabe";
-        } else {
-            int cantidadCaracteresFaltantes = n - longitudCadena;
-            StringBuilder resultado = new StringBuilder();
-
-            if (caracter == 'I') {
-                for (int i = 0; i < cantidadCaracteresFaltantes; i++) {
-                    resultado.append('.');
-                }
-                resultado.append(cadena);
-            } else {
-                resultado.append(cadena);
-                for (int i = 0; i < cantidadCaracteresFaltantes; i++) {
-                    resultado.append('.');
-                }
-            }
-
-            return resultado.toString();
+        while (cadena.length() < longitud){
+            cadena = "." + cadena;
         }
+        System.out.print(cadena);
+    }
+    public static void completarIzquierda(String cadena, int longitud ) {
+
+        while (cadena.length() < longitud){
+            cadena = cadena + ".";
+        }
+        System.out.print(cadena);
     }
 }
